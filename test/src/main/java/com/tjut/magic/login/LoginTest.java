@@ -25,6 +25,7 @@ public class LoginTest {
 
 	private static CookieStore cs = new BasicCookieStore();
 
+	@Test
 	public void test1() throws Exception {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 
@@ -46,6 +47,10 @@ public class LoginTest {
 		httppost.setEntity(reqEntity);
 		// 执行
 		HttpResponse response = httpclient.execute(httppost);
+		
+		/*httppost.addHeader("Range", "bytes=" + alreadySize + "-"  
+                + (totalSize-1));*/
+		 
 
 		Header[] headers = response.getAllHeaders();
 		for (Header h : headers) {
